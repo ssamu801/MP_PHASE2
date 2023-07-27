@@ -28,11 +28,13 @@
             </div>
             <div class="row">
                 <div class="column">
-                    <a href="#" class="content">
+                    <a href="addComboMeal.php" class="content">
+                        add combo meal
                     </a>
                 </div>
                 <div class="column">
-                    <a href="#" class="content">
+                    <a href="generatereport.php" class="content">
+                        generate report
                     </a>
                 </div>
             </div>

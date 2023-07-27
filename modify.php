@@ -39,17 +39,20 @@
 
                 <label for="dishCategory">Dish Category:</label>
                 <select name="dishCategory" class="dishCategory" required>
-                <option value="<?php echo $dcategory; ?>"><?php echo $dcategory; ?></option>
-
-            <?php
-                 $categQuery = mysqli_query($conn, "SELECT * FROM dish_category ");
+                <?php
+                    $categQuery = mysqli_query($conn, "SELECT * FROM dish_category ");
 
                     while ($category = mysqli_fetch_assoc($categQuery)) {
-                        echo '<option value="' . $category['categoryName'] . '">' . $category['categoryName'] . '</option>';
+                        $categoryName = $category['categoryName'];
+                        if ($categoryName === $dcategory) {
+                            echo '<option value="' . $categoryName . '" selected>' . $categoryName . '</option>';
+                        } else {
+                            echo '<option value="' . $categoryName . '">' . $categoryName . '</option>';
+                        }
                     }
-                 
-            ?>
-            </select>
+                 ?>
+                </select>
+
 
                 <br><br>
 
