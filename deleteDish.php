@@ -15,7 +15,17 @@
             <?php
                 if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $id = $_POST['dishID'];
-                    echo $id;
+                    $name = $_POST['dishName'];
+                    echo "Delete dish ".$name." ? <br>";
+
+                    echo '
+                        <form action="deleteDB.php" method="POST">
+                            <input type="hidden" name="dishID" value="'.$id.'">
+                            <input type="hidden" name="dishName" value="'.$name.'">
+                            <input type="submit" value="Yes">
+                            <br>
+                        </form>
+                    ';
                 }
                 else{
             ?>
@@ -30,9 +40,10 @@
                     echo '
                         <form action="deleteDish.php" method="POST">
                             <input type="hidden" name="dishID" value="'.$id.'">
+                            <input type="hidden" name="dishName" value="'.$name.'">
                             <input type="submit" value="' . $name . '" style="font-size: 16px;background-color: transparent; border: none;">
-                    <br>
-                </form>
+                            <br>
+                        </form>
                     ';
                 }
                 }
