@@ -1,0 +1,112 @@
+*{
+	text-decoration: none;
+	font-family: sans-serif;
+	/* Sans-serif Font */
+	color: var(--text-primary);
+	/* White Text */
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+  }
+  
+.navbar {
+    background-color: #191C24;
+    width: 200px; /* Adjust as needed */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+li {
+    padding: 10px;
+}
+  
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+  
+  /* Style the links on hover */
+a:hover {
+    background-color: #800000;
+}
+
+.logout {
+    padding-bottom: 25px;
+  }
+  
+  .logout a {
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .logout a:hover {
+    background-color: #800000;
+  }
+
+/* content */  
+main{
+    background-color: #CEE5D5;
+	  gap: 2em;
+	  margin-top:10vh;
+	  margin-left: 12vw;
+	  width: 85%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Optional: to center the content horizontally */
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Optional: spacing between rows */
+}
+
+.column {
+  flex-basis: calc(33.33% - 10px);
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.row:last-child .column {
+  flex-basis: calc(50% - 10px);
+}
+
+.column .content {
+  height: 300px;
+  width: 400px;
+  background-color: red;
+  display: flex; /* To enable centering */
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+}
+
+input[type="submit"]:hover {
+  background-color: #800000;
+  cursor: pointer;
+}
+  
