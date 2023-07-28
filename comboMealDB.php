@@ -12,6 +12,7 @@
         $maxIDQuery = "SELECT MAX(comboID) AS max_value FROM combo_content";
         $result = mysqli_query($conn, $maxIDQuery);    
         $row = mysqli_fetch_assoc($result);
+        $holder = $row['max_value'];
         $comboID = $row['max_value'] + 1;
 
 
@@ -48,6 +49,42 @@
 
         $comboLength = count($combo);
 
+        // check if combo already exists
+        $counter = 0;
+        for ($i = 1; $i <= $holder; $i++) {
+            $sql = "SELECT * FROM combo_content WHERE comboID=$i";
+            $result = mysqli_query($conn, $sql); 
+        
+            while ($res = mysqli_fetch_assoc($result)) {
+                for ($j = 0; $j < $comboLength; $j++) {
+                    if ($combo[$j] == $res['foodName']) {
+                        $counter++;
+                    }
+                }
+            }
+        }
+        
+
+        if($counter == 3){
+            echo "meron na nyan teh";
+        }
+        else{
+            $query = "INSERT INTO food_combo (comboID, comboName, discount) VALUES($comboID, '$comboName', $discount);";
+            $result = mysqli_query($conn, $query);
+            echo "combo name: ".$comboName."<br>";
+
+            for($i = 0; $i < $comboLength; $i++){
+                echo "combo id: ".$comboID."<br>";
+                echo "content id: ".$contentid."<br>";
+                echo "dish: ".$combo[$i]."<br>";
+            
+                $contentQuery = "INSERT INTO combo_content (contentID, comboID, foodName) VALUES($contentid, $comboID, '$combo[$i]');";
+                $result = mysqli_query($conn, $contentQuery);
+                $contentid++;
+            }   
+        }
+
+        /*
         $query = "INSERT INTO food_combo (comboID, comboName, discount) VALUES($comboID, '$comboName', $discount);";
         $result = mysqli_query($conn, $query);
         echo "combo name: ".$comboName."<br>";
@@ -60,7 +97,7 @@
             $result = mysqli_query($conn, $contentQuery);
             $contentid++;
         }
-
+        */
         echo '<a href="homePage.php">Home</a>';
     
         /*
@@ -79,6 +116,7 @@
         } else {
             echo "Error updating data: " . mysqli_error($conn);
         }
+        
 
         */
     }

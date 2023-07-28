@@ -6,16 +6,23 @@ $xml = simplexml_load_file("dishes_xmldata.xml") or die("Error: Cannot create ob
 
 
 foreach ($xml->children() as $row) {
-    echo $id = $row->id;
-    echo $name = $row->name;
-    echo $category = $row->category;
-    echo $price = $row->price;
-    echo "<br />";  
+    $id = $row->id;
+    $name = $row->name;
+    $category = $row->category;
+    $price = $row->price; 
+
+    $query = "SELECT * FROM dish WHERE dishID=$id ";
+    $result = mysqli_query($conn, $query);    
+ 
+    if (mysqli_num_rows($result) == 0) {
       $sql = "INSERT INTO dish(dishID, dishName, dishCategory, dishPrice) VALUES ('" . $id . "','" . $name . "','" . $category . "','" . $price . "')";
-      
       $result = mysqli_query($conn, $sql);
+    }
+      
 
   }
+
+  echo '<a href="homePage.php">Home</a>';
 
 
 ?>
