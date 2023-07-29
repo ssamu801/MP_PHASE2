@@ -18,6 +18,7 @@
 				</xsd:simpleType>
               </xsd:element>
               <xsd:element type="xsd:float" name="price"/>
+			  <xsd:element type="xsd:string" name="img"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

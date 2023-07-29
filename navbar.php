@@ -5,6 +5,7 @@
     <li><a href="deleteDish.php">Delete Dish</a></li>
     <li><a href="addComboMeal.php">Add Combo Meal</a></li>
     <li><a href="generatereport.php">Generate Report</a></li>
+    <li><a href="viewDish.php">View Dishes</a></li>
   </ul>
   <ul class="logout">
     <li><a href="#">Logout</a></li>

@@ -13,7 +13,7 @@
 		    <div id="title">
 			    <h2>Add a New Dish</h2>
 		    </div>
-            <form action="addDishToXML.php" method="POST">
+            <form action="addDishToXML.php" method="POST" enctype="multipart/form-data">
 
             <label for="dishName">Dish Name:</label>
             <input type='text' name='dishName' required><br><br>
@@ -36,6 +36,11 @@
 
                 <label for="dishPrice">Dish Price:</label>
                 <input type='number' name='dishPrice' step="0.01" size='5' min="1" required>
+
+                <br><br>
+                <label for="image">Select an image:</label>
+                <input type="file" name="image" required />
+                <br><br>
         
                 <input type="Submit" value="Add Dish">
                 <br>
